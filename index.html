@@ -1,287 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfect AI Chatbot</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #121212; /* Black background */
-      margin: 0;
-      color: #ffffff; /* White text */
-    }
-
-    .chat-container {
-      display: flex;
-      flex-direction: column;
-      width: 400px;
-      height: 600px;
-      background-color: #1e1e1e; /* Darker gray for container */
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      position: relative; /* Position relative for absolute children */
-    }
-
-    .chat-header {
-      background-color: #007bff;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 24px; /* Larger font for the title */
-      font-weight: bold;
-      letter-spacing: 1px; /* Spacing between letters */
-      position: absolute; /* Fixed position at the top */
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10; /* Ensure it's above other elements */
-    }
-
-    .chat-display {
-      flex-grow: 1;
-      padding: 70px 15px 15px; /* Space for the header */
-      background-color: #1e1e1e; /* Same as container */
-      overflow-y: auto;
-      border-top: 1px solid #333; /* Top border for distinction */
-      margin-top: 60px; /* Margin for the fixed header */
-    }
-
-    .message-container {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: flex-start; /* Align items to the top */
-    }
-
-    .message-container.user {
-      justify-content: flex-end;
-    }
-
-    .message-container.bot {
-      justify-content: flex-start;
-    }
-
-    .message {
-      max-width: 75%;
-      padding: 10px 15px;
-      border-radius: 20px;
-      font-size: 14px;
-      word-wrap: break-word;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      position: relative; /* Position relative for typewriter effect */
-      overflow: hidden; /* Hide overflowing text */
-      animation: typing 1s steps(30, end) forwards; /* Typing effect */
-    }
-
-    .message.user {
-      background-color: #007bff;
-      color: white;
-    }
-
-    .message.bot {
-      background-color: #2a2a2a; /* Slightly darker for bot messages */
-      color: #ffffff;
-    }
-
-    .chat-input-container {
-      padding: 10px 20px;
-      display: flex;
-      gap: 10px;
-      background-color: #1e1e1e; /* Darker gray for input */
-      position: absolute; /* Fixed position at the bottom */
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-
-    #userInput {
-      flex-grow: 1;
-      padding: 10px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      outline: none;
-      background-color: #2a2a2a; /* Darker for input */
-      color: white; /* White text */
-      transition: border-color 0.3s; /* Smooth border color transition */
-    }
-
-    #userInput:hover {
-      border-color: #007bff; /* Change border color on hover */
-    }
-
-    #sendButton {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    #sendButton:hover {
-      background-color: #0056b3;
-    }
-
-    .robot-profile {
-      width: 40px; /* Profile picture size */
-      height: 40px;
-      border-radius: 50%; /* Circular profile */
-      margin-right: 10px; /* Space between profile and message */
-      background-image: url('perfect.jpg'); /* Use your image here */
-      background-size: cover; /* Cover the entire area */
-      background-position: center; /* Center the image */
-    }
-
-    @keyframes typing {
-      0% { width: 0; }
-      100% { width: 100%; }
-    }
-
-    /* Scrollbar style */
-    .chat-display::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .chat-display::-webkit-scrollbar-thumb {
-      background-color: #007bff;
-      border-radius: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CortexAI</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
 </head>
-<body>
-
-  <div class="chat-container">
-    <div class="chat-header">
-      PERFECT AI
+<body onkeydown="handleEnter(event)">
+    <div class="top-bar">
+        <div class="hamburger" id="cover">
+            <!-- SVG Hamburger Icon -->
+            <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                <rect width="30" height="3" rx="1.5" />
+                <rect y="13.5" width="30" height="3" rx="1.5" />
+                <rect y="27" width="30" height="3" rx="1.5" />
+            </svg>
+        </div>
+        <h1>CortexAI</h1>
     </div>
-    <div id="chatDisplay" class="chat-display">
-      <!-- Messages will appear here -->
+    <div class="outer" id="outer">
+        <div class="inner"><img src="https://res.cloudinary.com/dsp6kqag8/image/upload/v1468198589/Home_drcqdz.svg" /></div>
+        <div class="inner"><img src="https://res.cloudinary.com/dsp6kqag8/image/upload/v1468198589/Box_vkpkbm.svg" /></div>
+        <div class="inner"><img src="https://res.cloudinary.com/dsp6kqag8/image/upload/v1468198589/Calendar_g4okow.svg" /></div>
+        <div class="inner"><img src="https://res.cloudinary.com/dsp6kqag8/image/upload/v1468198589/Rating_limkrw.svg" /></div>
     </div>
-    <div class="chat-input-container">
-      <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleEnter(event)">
-      <button id="sendButton" onclick="sendMessage()">Send</button>
+    <div class="main">
+        <div class="contain" id="chatDisplay"></div>
     </div>
-  </div>
+    <div class="message-box">
+        <input type="text" id="userInput" class="input-field" placeholder="Type your message...">
+        <button class="send-button" onclick="sendMessage()">Send</button>
+    </div>
 
-  <script>
-    let typingInterval;
-
-    async function sendMessage() {
-      const inputField = document.getElementById('userInput');
-      const chatDisplay = document.getElementById('chatDisplay');
-      const userMessage = inputField.value.trim();
-
-      if (userMessage === '') return;
-
-      // Append user's message to the chat display
-      appendMessage(userMessage, 'user');
-
-      // Clear the input field
-      inputField.value = '';
-
-      // Append loading indicator while waiting for the API response
-      const loadingMessage = appendMessage('Typing', 'bot', true);
-
-      // Start typing animation
-      startTypingAnimation(loadingMessage);
-
-      try {
-        // Fetch the response from the API
-        const response = await fetch(`https://ai-kohl-xi.vercel.app/perfect?query=${encodeURIComponent(userMessage)}`);
-
-        // Check if the request was successful
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        // Parse the response as JSON
-        const data = await response.json();
-
-        // Stop typing animation
-        stopTypingAnimation();
-
-        // Remove loading message
-        loadingMessage.remove();
-
-        // Append robot profile before the response
-        const botMessage = appendMessage('', 'bot'); // Empty message to attach robot profile
-
-        // Simulate typewriter effect for bot response
-        typeWriterEffect(botMessage, data.response);
-
-      } catch (error) {
-        console.error('Error fetching the API:', error);
-        stopTypingAnimation();
-        loadingMessage.remove();
-        appendMessage('Error: Could not fetch response. Please try again later.', 'bot');
-      }
-
-      // Scroll chat to the bottom
-      chatDisplay.scrollTop = chatDisplay.scrollHeight;
-    }
-
-    function appendMessage(messageText, sender, isLoading = false) {
-      const chatDisplay = document.getElementById('chatDisplay');
-      const messageContainer = document.createElement('div');
-      messageContainer.classList.add('message-container', sender);
-
-      // Add robot profile for bot messages
-      if (sender === 'bot') {
-        const profileDiv = document.createElement('div');
-        profileDiv.classList.add('robot-profile');
-        messageContainer.appendChild(profileDiv);
-      }
-
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message', sender);
-      messageDiv.textContent = messageText;
-
-      if (isLoading) {
-        messageDiv.classList.add('loading');
-      }
-
-      messageContainer.appendChild(messageDiv);
-      chatDisplay.appendChild(messageContainer);
-
-      // Scroll chat to the bottom
-      chatDisplay.scrollTop = chatDisplay.scrollHeight;
-
-      return messageDiv;
-    }
-
-    function typeWriterEffect(messageDiv, text, i = 0) {
-      if (i < text.length) {
-        messageDiv.textContent += text.charAt(i);
-        setTimeout(() => typeWriterEffect(messageDiv, text, i + 1), 50); // Typewriter speed
-      }
-    }
-
-    function startTypingAnimation(loadingMessage) {
-      let dotCount = 0;
-
-      typingInterval = setInterval(() => {
-        dotCount = (dotCount + 1) % 4; // Cycle through 0-3
-        loadingMessage.textContent = 'Typing' + '.'.repeat(dotCount); // Add dots
-      }, 500); // Update every 500ms
-    }
-
-    function stopTypingAnimation() {
-      clearInterval(typingInterval);
-    }
-
-    // Handle "Enter" key press to send message
-    function handleEnter(event) {
-      if (event.key === 'Enter') {
-        sendMessage();
-      }
-    }
-  </script>
-
-</
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
