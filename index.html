@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT-like Chat</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      width: 600px;
+      max-width: 100%;
+      height: 80vh;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-display {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .chat-input-container {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background-color: #fafafa;
+    }
+
+    .chat-input-container input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .chat-input-container button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .message-container {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .message-container.user {
+      justify-content: flex-end;
+    }
+
+    .message-container.bot {
+      justify-content: flex-start;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 15px;
+      border-radius: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .message.user {
+      background-color: #007bff;
+      color: white;
+      border-bottom-right-radius: 0;
+    }
+
+    .message.bot {
+      background-color: #f1f1f1;
+      color: #333;
+      border-bottom-left-radius: 0;
+    }
+
+    /* Scrollbar styling */
+    .chat-display::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .chat-display::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 10px;
+    }
+
+    .loading {
+      color: #555;
+      font-style: italic;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <div class="chat-display" id="chatDisplay"></div>
+    <div class="chat-input-container">
+      <input type="text" id="userInput" placeholder="Type your message..." onkeydown="if(event.key === 'Enter'){ sendMessage(); }">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div><script>
+    async function sendMessage() {
+      const inputField = document.getElementById('userInput');
+      const chatDisplay = document.getElementById('chatDisplay');
+      const userMessage = inputField.value.trim();
+
+      if (userMessage === '') return;
+
+      // Append user's message to the chat display
+      appendMessage(userMessage, 'user');
+
+      // Clear the input field
+      inputField.value = '';
+
+      // Append loading indicator while waiting for the API response
+      const loadingMessage = appendMessage('Typing...', 'bot', true);
+
+      try {
+        // Fetch the response from the API
+        console.log(`Sending query: ${userMessage}`);
+        const response = await fetch(`https://ai-kohl-xi.vercel.app/perfect?query=${encodeURIComponent(userMessage)}`);
+
+        // Check if the request was successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Parse the response as JSON
+        const data = await response.json();
+        console.log('API Response:', data); // Log the entire response to check its structure
+
+        // Remove loading message
+        loadingMessage.remove();
+
+        // Check if the response contains the "response" field and display it
+        if (data.response) {
+          appendMessage(data.response, 'bot');
+        } else {
+          appendMessage('Sorry, I could not find an answer.', 'bot');
+        }
+      } catch (error) {
+        console.error('Error fetching the API:', error);
+        loadingMessage.remove();
+        appendMessage('Error: Could not fetch response', 'bot');
+      }
+
+      // Scroll chat to the bottom
+      chatDisplay.scrollTop = chatDisplay.scrollHeight;
+    }
+
+    function appendMessage(messageText, sender, isLoading = false) {
+      const chatDisplay = document.getElementById('chatDisplay');
+      const messageContainer = document.createElement('div');
+      messageContainer.classList.add('message-container', sender);
+
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', sender);
+      messageDiv.textContent = messageText;
+
+      if (isLoading) {
+        messageDiv.classList.add('loading');
+      }
+
+      messageContainer.appendChild(messageDiv);
+      chatDisplay.appendChild(messageContainer);
+
+      return messageContainer;
+    }
+  </script>
+
+
+
+
+</body>
+</html>
