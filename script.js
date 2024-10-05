@@ -13,7 +13,7 @@ async function sendMessage() {
     startTypingAnimation(loadingMessage);
 
     try {
-        const response = await fetch(`https://ai-kohl-xi.vercel.app/perfect?query=${encodeURIComponent(userMessage)}`);
+        const response = await fetch(`https://kora-ai.onrender.com/koraai?query=${encodeURIComponent(userMessage)}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -27,7 +27,7 @@ async function sendMessage() {
         console.error('Error:', error);
         stopTypingAnimation();
         loadingMessage.remove();
-        appendMessage('Error: Could not fetch response. Please try again later.', 'bot');
+        appendMessage('Error: Kora could not respond at the moment. Please try again later.', 'bot');
     }
 
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
