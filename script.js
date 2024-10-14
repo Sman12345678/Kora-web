@@ -13,7 +13,7 @@ async function sendMessage() {
     startTypingAnimation(loadingMessage);
 
     try {
-        const response = await fetch(`https://kora-ai.onrender.com/koraai?query=${encodeURIComponent(userMessage)}`);
+        const response = await fetch(`https://kora-ai-sh1p.onrender.com/koraai?query=${encodeURIComponent(userMessage)}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
