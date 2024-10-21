@@ -6,6 +6,8 @@ body {
   text-align: center;
   background-color: #3498db; /* Soft blue background */
   margin: 0; /* Remove default margin */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Hide scrollbar */
 }
 
 header {
@@ -13,6 +15,7 @@ header {
   padding: 20px;
   color: #fff; /* White text */
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  width: 100%; /* Full width */
 }
 
 header h1 {
@@ -25,6 +28,8 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  height: calc(100vh - 80px); /* Full height minus header */
+  overflow-y: auto; /* Scrollable content */
 }
 
 main p {
@@ -40,6 +45,10 @@ main p {
   cursor: pointer;
   border-radius: 10px; /* Softer corners */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Depth effect */
+  position: absolute; /* Absolute positioning */
+  bottom: 20px; /* Distance from bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
 }
 
 .start-button:hover {
@@ -47,7 +56,7 @@ main p {
 }
 
 .start-button:active {
-  transform: scale(0.9); /* Pressed effect */
+  transform: scale(0.9) translateX(-50%); /* Pressed effect */
 }
 
 /* Responsive design */
