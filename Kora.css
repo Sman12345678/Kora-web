@@ -4,14 +4,14 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #3498db; /* Soft blue background */
+  background-color: #000000; /* Soft blue background */
   margin: 0; /* Remove default margin */
-  height: 100vh; /* Full height */
+  height: 80vh; /* Full height */
   overflow: hidden; /* Hide scrollbar */
 }
 
 header {
-  background-color: #2ecc71; /* Green header */
+  background-color: #ff0000; /* Green header */
   padding: 20px;
   color: #fff; /* White text */
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
@@ -20,7 +20,7 @@ header {
 
 header h1 {
   margin: 0; /* Remove default margin */
-  font-size: 30px; /* Larger font size */
+  font-size: 50px; /* Larger font size */
 }
 
 main {
@@ -33,7 +33,7 @@ main {
 }
 
 main p {
-  font-size: 18px; /* Larger font size */
+  font-size: 20px; /* Larger font size */
   margin-bottom: 40px; /* Spacing */
 }
 
