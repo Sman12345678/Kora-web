@@ -1,6 +1,9 @@
-const startButton = document.querySelector('start-button');
+const startButton = document.querySelector('.start-button');
 
-
-start-button.addEventListener('click', () => {
-    window.location.href = 'Kora.html';
-});
+if (startButton) {
+  startButton.addEventListener('click', () => {
+    window.location.replace('Kora.html');
+  });
+} else {
+  console.error('Start button not found');
+}
