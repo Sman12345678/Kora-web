@@ -4,7 +4,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #2f4f4f; /* Soft blue background */
+  background-color: #ffffff; /* Soft white background */
   margin: 0; /* Remove default margin */
   height: 80vh; /* Full height */
   overflow: hidden; /* Hide scrollbar */
@@ -38,7 +38,7 @@ main p {
 }
 
 .start-button {
-  background-color: #e74c3c; /* Vibrant orange */
+  background-color: #87CEEB; /* Vibrant orange */
   color: #fff;
   padding: 15px 30px;
   font-size: 20px;
