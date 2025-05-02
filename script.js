@@ -20,7 +20,7 @@ async function sendMessage() {
     startTypingAnimation(loadingMessage);
 
     try {
-        const response = await fetch(`https://kora-ai-sh1p.onrender.com/koraai?query=${encodeURIComponent(userMessage)}&user=${userId}`);
+        const response = await fetch(`https://seleniumtest-xf3d.onrender.com/api?query=${encodeURIComponent(userMessage)}&user_id=${userId}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
