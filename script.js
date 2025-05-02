@@ -53,7 +53,18 @@ function appendMessage(messageText, sender, isLoading = false) {
 
     const message = document.createElement('div');
     message.classList.add('message');
-    message.textContent = messageText;
+
+    // Detect and render code block
+    if (messageText.startsWith("```") && messageText.endsWith("```")) {
+        const code = messageText.replace(/^```(\w+)?\n?/, '').replace(/```$/, '');
+        const pre = document.createElement('pre');
+        const codeElement = document.createElement('code');
+        codeElement.textContent = code;
+        pre.appendChild(codeElement);
+        message.appendChild(pre);
+    } else {
+        message.textContent = messageText;
+    }
 
     if (isLoading) {
         message.classList.add('loading');
@@ -84,7 +95,7 @@ function handleEnter(event) {
     }
 }
 
-document.getElementById('cover').addEventListener('click', function() {
+document.getElementById('cover').addEventListener('click', function () {
     const outerMenu = document.getElementById('outer');
     outerMenu.classList.toggle('isOpen');
 });
