@@ -1,5 +1,12 @@
 let typingInterval;
 
+// Get or create a unique user ID
+let userId = localStorage.getItem('user_id');
+if (!userId) {
+    userId = crypto.randomUUID();
+    localStorage.setItem('user_id', userId);
+}
+
 async function sendMessage() {
     const inputField = document.getElementById('userInput');
     const chatDisplay = document.getElementById('chatDisplay');
@@ -13,7 +20,7 @@ async function sendMessage() {
     startTypingAnimation(loadingMessage);
 
     try {
-        const response = await fetch(`https://kora-ai-sh1p.onrender.com/koraai?query=${encodeURIComponent(userMessage)}`);
+        const response = await fetch(`https://kora-ai-sh1p.onrender.com/koraai?query=${encodeURIComponent(userMessage)}&user=${userId}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -54,7 +61,7 @@ function appendMessage(messageText, sender, isLoading = false) {
 
     messageContainer.appendChild(message);
     chatDisplay.appendChild(messageContainer);
-    return messageContainer; // Return the loading message container for removal later
+    return messageContainer;
 }
 
 function startTypingAnimation(loadingMessage) {
