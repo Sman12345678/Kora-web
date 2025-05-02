@@ -67,3 +67,16 @@ main p {
     padding: 10px 20px;
   }
 }
+pre {
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    margin-top: 5px;
+}
+
+code {
+    white-space: pre;
+                              }
