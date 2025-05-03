@@ -130,9 +130,8 @@ body {
 .bot .message {
   background-color: #444;
   border-radius: 20px 20px 0 20px; 
-   font-family: 'Courier New', monospace;
-    font-size: 15px;
-    word-break: break-word;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
 }
 
 /* Links in bot messages */
