@@ -176,7 +176,7 @@ body {
     border-radius: 8px;
     overflow-x: auto;
     white-space: pre-wrap;
-    box-shadow: 0 0 10px #00ff99 inset;
+    
 }
 
 /* Optional: Make the neon border animate */
