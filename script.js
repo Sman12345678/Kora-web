@@ -40,7 +40,8 @@ async function sendMessage() {
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
 }
 
-function appendMessage(messageText, sender, isLoading = false) {
+function appendMessage(messageText, sender, 
+                       isLoading = false) {
     const chatDisplay = document.getElementById('chatDisplay');
     const messageContainer = document.createElement('div');
     messageContainer.classList.add('message-container', sender);
@@ -56,12 +57,14 @@ function appendMessage(messageText, sender, isLoading = false) {
 
     if (isLoading) {
         message.classList.add('loading');
-
     } else {
-        message.innerHTML = messageText;
+        // Use innerHTML only for bot messages, textContent for user messages
+        if (sender === 'bot') {
+            message.innerHTML = messageText;
+        } else {
+            message.textContent = messageText;
+        }
     }
-
-    
 
     messageContainer.appendChild(message);
     chatDisplay.appendChild(messageContainer);
