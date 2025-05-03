@@ -129,8 +129,71 @@ body {
 
 .bot .message {
   background-color: #444;
-  border-radius: 20px 20px 0 20px;
+  border-radius: 20px 20px 0 20px; 
+   font-family: 'Courier New', monospace;
+    font-size: 15px;
+    word-break: break-word;
 }
+
+/* Links in bot messages */
+.bot .message a {
+    color: #33ffcc;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.bot .message a:hover {
+    color: #00cc99;
+}
+
+/* Images in bot messages */
+.bot .message img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #00ff99;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #00ff99;
+}
+
+/* Audio and video players in bot messages */
+.bot .message audio,
+.bot .message video {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #00ff99;
+    border-radius: 6px;
+    background-color: #111;
+    box-shadow: 0 0 10px #00ff99;
+}
+
+/* Code blocks */
+.bot .message pre,
+.bot .message code {
+    background-color: #111;
+    color: #00ff99;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    box-shadow: 0 0 10px #00ff99 inset;
+}
+
+/* Optional: Make the neon border animate */
+@keyframes neon-glow {
+    0%, 100% {
+        box-shadow: 0 0 12px #00ff99, 0 0 24px #00ff99;
+    }
+    50% {
+        box-shadow: 0 0 18px #00ff99, 0 0 36px #00ff99;
+    }
+}
+
+.bot .message {
+    animation: neon-glow 2s ease-in-out infinite;
+}
+
 
 .loading {
   color: yellow;
