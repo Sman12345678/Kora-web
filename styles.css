@@ -166,19 +166,27 @@ body {
 }
 
 /* Code blocks */
-.bot .message pre,
-.bot .message code {
+/* Code block container */
+.bot .message pre {
     background-color: #111;
     color: #00ff99;
-    font-family: 'Courier New', monospace;
-    font-size: 15px;
     padding: 10px;
     border-radius: 8px;
     overflow-x: auto;
-    white-space: pre-wrap;
-    
+    border: 1px solid #00ff99;    /* Border only on the container */
+    margin: 10px 0;               /* Add some vertical spacing */
 }
 
+/* Code text itself */
+.bot .message code {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    background-color: transparent;  /* Remove background from code itself */
+    color: #00ff99;
+    padding: 0;                     /* Remove padding from code itself */
+    border: none;                   /* Remove border from code itself */
+    white-space: pre-wrap;
+  }
 /* Optional: Make the neon border animate */
 @keyframes neon-glow {
     0%, 100% {
