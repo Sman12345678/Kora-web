@@ -164,6 +164,15 @@ body {
     background-color: #111;
     box-shadow: 0 0 10px #00ff99;
 }
+.bot .message iframe {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #00ff99;
+    border-radius: 6px;
+    background-color: #111;
+    box-shadow: 0 0 10px #00ff99;
+}
+
 
 /* Code blocks */
 /* Code block container */
