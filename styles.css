@@ -60,7 +60,7 @@ body {
 /* Message Box Styles */
 .message-box {
   position: absolute;   /* Change to absolute */
-  top: 50%;             /* Center vertically */
+  top: 80%;             /* Center vertically */
   left: 50%;            /* Center horizontally */
   transform: translate(-50%, -50%);  /* Adjust to exactly center */
   width: auto;
@@ -81,7 +81,7 @@ body {
   border: none;
   border-radius: 20px;
   padding: 0 10px;
-  margin-right: 15px;
+  margin: 15px;
 }
 
 .send-button {
