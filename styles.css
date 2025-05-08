@@ -88,9 +88,9 @@ body {
 }
 
 .send-button {
-  height: 60px;
-  width: 60px;
-  background-color:#000000; /* Blue color */
+  height: 40px;
+  width: 40px;
+  background-color: #2a2a2a; /* Blue color */
   border: none;
   border-radius: 10px; /* Circular button */
   display: flex;
@@ -108,8 +108,8 @@ body {
 
 /* Style the send button icon */
 .send-button img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   filter: invert(1); /* Makes the icon white */
 }
 
