@@ -59,13 +59,14 @@ body {
 
 /* Message Box Styles */
 .message-box {
-  position: fixed;
+  position: absolute;
   bottom: 10px; /* Adjust this value if needed */
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  height: 100px;
+  width: 400px;
+  height: 300px;
   background-color: #1a1a1a;
+  border: 1px solid purple;
   display: flex;
   align-items: center;
   padding: 0 20px;
