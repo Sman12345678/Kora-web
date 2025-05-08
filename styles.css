@@ -90,7 +90,7 @@ body {
 .send-button {
   height: 50px;
   width: 50px;
-  background-color: #007BFF; /* Blue color */
+  background-color:; /* Blue color */
   border: none;
   border-radius: 50%; /* Circular button */
   display: flex;
@@ -102,7 +102,7 @@ body {
 
 /* Add hover effect */
 .send-button:hover {
-  background-color: #0056b3; /* Darker blue */
+  background-color:; /* Darker blue */
   transform: scale(1.1); /* Slightly enlarge */
 }
 
