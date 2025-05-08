@@ -86,13 +86,30 @@ body {
 
 .send-button {
   height: 50px;
-  background-color: #007BFF;
-  color: white;
+  width: 50px;
+  background-color: #007BFF; /* Blue color */
   border: none;
-  border-radius: 20px;
+  border-radius: 50%; /* Circular button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0 20px;
+  transition: 0.3s ease-in-out; /* Smooth hover effect */
 }
+
+/* Add hover effect */
+.send-button:hover {
+  background-color: #0056b3; /* Darker blue */
+  transform: scale(1.1); /* Slightly enlarge */
+}
+
+/* Style the send button icon */
+.send-button img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1); /* Makes the icon white */
+}
+
 
 /* Chat Display Styles */
 #chatDisplay {
