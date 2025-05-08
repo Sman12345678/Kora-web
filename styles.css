@@ -59,18 +59,17 @@ body {
 
 /* Message Box Styles */
 .message-box {
-  position: absolute;   /* Change to absolute */
-  top: 90%;             /* Center vertically */
-  left: 50%;            /* Center horizontally */
-  transform: translate(-50%, -50%);  /* Adjust to exactly center */
+  position: fixed;
+  bottom: 10px; /* Adjust this value if needed */
+  left: 50%;
+  transform: translateX(-50%);
   width: 500px;
   height: 60px;
-  margin-bottom:20px;
   background-color: #1a1a1a;
   display: flex;
   align-items: center;
   padding: 0 20px;
-  justify-content: flex-start;
+  justify-content: space-between;
   border-radius: 20px;
   box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.1);
 }
