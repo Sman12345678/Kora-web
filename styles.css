@@ -63,10 +63,10 @@ body {
   bottom: 10px; /* Adjust this value if needed */
   left: 50%;
   transform: translateX(-50%);
-  width: 350px;
+  width: 450px;
   height: 100px;
   background-color: #1a1a1a;
-  border: 1px solid purple;
+  border: 1px solid #fff;
   display: flex;
   align-items: center;
   padding: 0 20px;
