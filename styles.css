@@ -126,17 +126,12 @@ body {
   margin-left: 0;
   margin-right: 10px;
 }
+
 .bot .message {
   background-color:;
-  color: #ffffff;
+  border-radius: 20px 20px 0 20px; 
   font-family: 'Courier New', monospace;
   font-size: 15px;
-  overflow: hidden;
-  border-right: .15em solid #fff;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .1em;
-  width:;
   animation: typing 5s steps(40, end) forwards, blink .75s step-end 5s 1;
 }
 
@@ -149,7 +144,6 @@ body {
   from, to { border-color: transparent }
   50% { border-color: white }
 }
-
 
 /* Links in bot messages */
 .bot .message a {
