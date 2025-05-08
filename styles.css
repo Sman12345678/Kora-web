@@ -63,9 +63,9 @@ body {
   top: 100%;             /* Center vertically */
   left: 50%;            /* Center horizontally */
   transform: translate(-50%, -50%);  /* Adjust to exactly center */
-  width: 200px;
+  width: 500px;
   height: 60px;
-  margin-bottom:3px;
+  margin-bottom:30px;
   background-color: #1a1a1a;
   display: flex;
   align-items: center;
