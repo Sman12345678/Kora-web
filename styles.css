@@ -60,10 +60,10 @@ body {
 /* Message Box Styles */
 .message-box {
   position: absolute;   /* Change to absolute */
-  top: 80%;             /* Center vertically */
+  top: 100%;             /* Center vertically */
   left: 50%;            /* Center horizontally */
   transform: translate(-50%, -50%);  /* Adjust to exactly center */
-  width: auto;
+  width: 100px
   height: 60px;
   background-color: #1a1a1a;
   display: flex;
