@@ -89,10 +89,10 @@ body {
 
 .send-button {
   height: 60px;
-  width: 6px;
+  width: 60px;
   background-color:#000000; /* Blue color */
   border: none;
-  border-radius: 50%; /* Circular button */
+  border-radius: 10px; /* Circular button */
   display: flex;
   align-items: center;
   justify-content: center;
